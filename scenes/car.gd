@@ -28,5 +28,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	knockback_status = true
 	var knockback_dir = (area.global_position - global_position).normalized()
 	if knockback_status == true:
-		linear_velocity = knockback * knockback_dir
+		apply_central_force(knockback * knockback_dir)
 	timer.start()

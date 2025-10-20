@@ -12,7 +12,7 @@ zoom = Vector2(2.18, 2.18)
 
 [node name="Car" parent="." instance=ExtResource("1_wtcfe")]
 position = Vector2(10, -86)
-rotation = -0.8831393
+rotation = -0.883139
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-2, 68)
@@ -27,7 +27,7 @@ shape = SubResource("WorldBoundaryShape2D_0e48y")
 
 [node name="Car2" parent="." instance=ExtResource("1_wtcfe")]
 position = Vector2(-23, -89)
-rotation = 1.3843054
+rotation = 1.38431
 inertia = 14.8
 
 [node name="Car3" parent="." instance=ExtResource("1_wtcfe")]
@@ -35,4 +35,4 @@ position = Vector2(-48, -108)
 
 [node name="Car4" parent="." instance=ExtResource("1_wtcfe")]
 position = Vector2(66, -87)
-rotation = -1.7954804
+rotation = -1.79548

@@ -15,7 +15,7 @@ gravity_scale = 0.0
 script = ExtResource("1_qt2eu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1015625, 0.234375)
+scale = Vector2(0.101563, 0.234375)
 texture = ExtResource("1_c35m8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -31,7 +31,7 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qt2eu")
-debug_color = Color(0.8574339, 0.027606452, 0.8760391, 0.41960785)
+debug_color = Color(0.857434, 0.0276065, 0.876039, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
