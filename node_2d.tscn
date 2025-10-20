@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxvfmtkowfa0i"]
+
+[ext_resource type="PackedScene" uid="uid://br5ekp276rdtg" path="res://scenes/car.tscn" id="1_wtcfe"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0e48y"]
+
+[node name="game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-34, -40)
+zoom = Vector2(2.18, 2.18)
+
+[node name="Car" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(10, -86)
+rotation = -0.8831393
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-2, 68)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0e48y")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D/CollisionShape2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D/Area2D"]
+shape = SubResource("WorldBoundaryShape2D_0e48y")
+
+[node name="Car2" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(-23, -89)
+rotation = 1.3843054
+inertia = 14.8
+
+[node name="Car3" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(-48, -108)
+
+[node name="Car4" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(66, -87)
+rotation = -1.7954804

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://br5ekp276rdtg"]
+
+[ext_resource type="Texture2D" uid="uid://67y86e6t1wqg" path="res://icon.svg" id="1_c35m8"]
+[ext_resource type="Script" uid="uid://b53ncrofpqrta" path="res://scenes/car.gd" id="1_qt2eu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qt2eu"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt2eu"]
+size = Vector2(20, 37)
+
+[node name="Car" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_qt2eu")
+gravity_scale = 0.0
+script = ExtResource("1_qt2eu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1015625, 0.234375)
+texture = ExtResource("1_c35m8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qt2eu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qt2eu")
+debug_color = Color(0.8574339, 0.027606452, 0.8760391, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
