@@ -7,32 +7,50 @@
 [node name="game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-34, -40)
-zoom = Vector2(2.18, 2.18)
+position = Vector2(-27, -40)
+scale = Vector2(-0.0141668, 1.00169)
+zoom = Vector2(2.135, 2.135)
 
 [node name="Car" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(10, -86)
+position = Vector2(39, -23)
 rotation = -0.883139
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-2, 68)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_0e48y")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D/CollisionShape2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D/Area2D"]
-shape = SubResource("WorldBoundaryShape2D_0e48y")
-
 [node name="Car2" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(-23, -89)
-rotation = 1.38431
+position = Vector2(-29, -11)
+rotation = 1.43331
 inertia = 14.8
 
 [node name="Car3" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(-48, -108)
+position = Vector2(-146, -2)
+rotation = 0.718794
 
 [node name="Car4" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(66, -87)
-rotation = -1.79548
+position = Vector2(186, 51)
+rotation = -1.76586
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-11, 97)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_0e48y")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D2/CollisionShape2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/CollisionShape2D/Area2D"]
+shape = SubResource("WorldBoundaryShape2D_0e48y")
+
+[node name="Car5" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(-3, 60)
+rotation = 0.201329
+
+[node name="Car6" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(77, 40)
+rotation = 0.0802341
+
+[node name="Car7" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(-108, 32)
+rotation = 0.428438
+
+[node name="Car8" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(-167, 55)
+rotation = 0.83785

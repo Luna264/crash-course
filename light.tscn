@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://7bblc3hmd4rp"]
+
+[ext_resource type="Texture2D" uid="uid://67y86e6t1wqg" path="res://icon.svg" id="1_hdgcg"]
+[ext_resource type="Script" uid="uid://o1655v1686th" path="res://light.gd" id="1_we4ua"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_we4ua"]
+radius = 112.712
+
+[node name="stoplight" type="Node2D"]
+script = ExtResource("1_we4ua")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="green" type="Sprite2D" parent="CharacterBody2D"]
+modulate = Color(0.999348, 0.484731, 0.502133, 1)
+scale = Vector2(-0.171182, -0.750065)
+texture = ExtResource("1_hdgcg")
+
+[node name="yellow" type="Sprite2D" parent="CharacterBody2D"]
+modulate = Color(0.827185, 0.574757, 0.0606315, 1)
+scale = Vector2(-0.171182, -0.750065)
+texture = ExtResource("1_hdgcg")
+
+[node name="red" type="Sprite2D" parent="CharacterBody2D"]
+modulate = Color(4.57242e-06, 0.797362, 0.296824, 1)
+scale = Vector2(-0.171182, -0.750065)
+texture = ExtResource("1_hdgcg")
+
+[node name="Button" type="Button" parent="CharacterBody2D"]
+offset_left = -9.0
+offset_top = -49.0
+offset_right = 8.0
+offset_bottom = 49.0
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("CircleShape2D_we4ua")
+
+[connection signal="pressed" from="CharacterBody2D/Button" to="." method="_on_button_pressed"]
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_exited"]
