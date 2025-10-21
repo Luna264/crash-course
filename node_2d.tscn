@@ -1,35 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxvfmtkowfa0i"]
+[gd_scene load_steps=7 format=3 uid="uid://cxvfmtkowfa0i"]
 
 [ext_resource type="PackedScene" uid="uid://br5ekp276rdtg" path="res://scenes/car.tscn" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://22r2546oi65u" path="res://node_2d.gd" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://7bblc3hmd4rp" path="res://light.tscn" id="3_epypp"]
+[ext_resource type="PackedScene" uid="uid://d1heg3gqagijo" path="res://lightvertical.tscn" id="4_0hol4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0e48y"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(174.027, 97.3455)
+
 [node name="game" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-27, -40)
-scale = Vector2(-0.0141668, 1.00169)
-zoom = Vector2(2.135, 2.135)
-
-[node name="Car" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(39, -23)
-rotation = -0.883139
-
-[node name="Car2" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(-29, -11)
-rotation = 1.43331
-inertia = 14.8
-
-[node name="Car3" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(-146, -2)
-rotation = 0.718794
-
-[node name="Car4" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(186, 51)
-rotation = -1.76586
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-11, 97)
+position = Vector2(-25, 127)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("WorldBoundaryShape2D_0e48y")
@@ -39,18 +23,101 @@ shape = SubResource("WorldBoundaryShape2D_0e48y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/CollisionShape2D/Area2D"]
 shape = SubResource("WorldBoundaryShape2D_0e48y")
 
-[node name="Car5" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(-3, 60)
-rotation = 0.201329
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-19, -201)
+rotation = -3.15205
 
-[node name="Car6" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(77, 40)
-rotation = 0.0802341
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_0e48y")
 
-[node name="Car7" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(-108, 32)
-rotation = 0.428438
+[node name="Area2D" type="Area2D" parent="StaticBody2D3/CollisionShape2D"]
 
-[node name="Car8" parent="." instance=ExtResource("1_wtcfe")]
-position = Vector2(-167, 55)
-rotation = 0.83785
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/CollisionShape2D/Area2D"]
+shape = SubResource("WorldBoundaryShape2D_0e48y")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-17, -184)
+rotation = -3.15205
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(198.583, -245.936)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D4/CollisionShape2D"]
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-17, -184)
+rotation = -3.15205
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-172.396, -249.817)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D5/CollisionShape2D"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-176.582, -40.8492)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D5/CollisionShape2D2"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(192.418, -38.9895)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D5/CollisionShape2D3"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-27, -40)
+scale = Vector2(-0.0141668, 1.00169)
+zoom = Vector2(2.135, 2.135)
+
+[node name="Car" parent="." instance=ExtResource("1_wtcfe")]
+position = Vector2(-250, -32)
+rotation = 1.57168
+
+[node name="carsSpawner" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="carsSpawner"]
+offset_left = -270.0
+offset_top = 70.0
+offset_right = -210.0
+offset_bottom = 101.0
+text = "Spawn"
+
+[node name="Node2D" type="Node2D" parent="carsSpawner"]
+position = Vector2(-18, -177)
+script = ExtResource("2_0e48y")
+
+[node name="Spawner" type="Node2D" parent="carsSpawner/Node2D"]
+position = Vector2(-200, 138)
+
+[node name="Spawner2" type="Node2D" parent="carsSpawner/Node2D"]
+position = Vector2(-7, 250)
+
+[node name="Spawner3" type="Node2D" parent="carsSpawner/Node2D"]
+position = Vector2(237, 142)
+
+[node name="Spawner4" type="Node2D" parent="carsSpawner/Node2D"]
+position = Vector2(-2, 12)
+
+[node name="stoplightLEFT" parent="." instance=ExtResource("3_epypp")]
+position = Vector2(-126, -38)
+
+[node name="stoplightRIGHT" parent="." instance=ExtResource("3_epypp")]
+position = Vector2(64, -39)
+rotation = -3.13603
+
+[node name="stoplight" parent="." instance=ExtResource("4_0hol4")]
+position = Vector2(-30, 5.99999)
+rotation = -1.5853
+
+[node name="stoplight2" parent="." instance=ExtResource("4_0hol4")]
+position = Vector2(-27, -87)
+rotation = 1.55271
+
+[connection signal="pressed" from="carsSpawner/Button" to="carsSpawner/Node2D" method="_on_button_pressed"]

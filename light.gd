@@ -7,17 +7,17 @@ var cars_in_area: Array = []
 var color = "red" 
 
 func _ready() -> void:
-	red.visible
+	red.visible = true
 	update_light()
 
 func _on_button_pressed() -> void:
 	match color:
 		"red":
-			color = "yellow"
-		"yellow":
 			color = "green"
-		"green":
+		"yellow":
 			color = "red"
+		"green":
+			color = "yellow"
 	update_light()
 	
 func update_light() -> void:
