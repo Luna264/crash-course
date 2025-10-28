@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://br5ekp276rdtg"]
 
-[ext_resource type="Texture2D" uid="uid://67y86e6t1wqg" path="res://icon.svg" id="1_c35m8"]
 [ext_resource type="Script" uid="uid://b53ncrofpqrta" path="res://scenes/car.gd" id="1_qt2eu"]
+[ext_resource type="Texture2D" uid="uid://caxhk7st6ohmk" path="res://images/car.png" id="2_qt2eu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qt2eu"]
 bounce = 1.0
@@ -16,8 +16,10 @@ gravity_scale = 0.0
 script = ExtResource("1_qt2eu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.101563, 0.234375)
-texture = ExtResource("1_c35m8")
+position = Vector2(-3.99849, -2.00303)
+rotation = -1.57357
+scale = Vector2(0.0606669, 0.0606669)
+texture = ExtResource("2_qt2eu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

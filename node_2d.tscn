@@ -1,75 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxvfmtkowfa0i"]
+[gd_scene load_steps=9 format=3 uid="uid://cxvfmtkowfa0i"]
 
+[ext_resource type="Texture2D" uid="uid://tb8fmig0f43p" path="res://images/road.png" id="1_kdubu"]
 [ext_resource type="PackedScene" uid="uid://br5ekp276rdtg" path="res://scenes/car.tscn" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://22r2546oi65u" path="res://node_2d.gd" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://7bblc3hmd4rp" path="res://light.tscn" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://d1heg3gqagijo" path="res://lightvertical.tscn" id="4_0hol4"]
+[ext_resource type="PackedScene" uid="uid://clvbttc8t73w0" path="res://lightverticalDOWN.tscn" id="5_q6r6c"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0e48y"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
+size = Vector2(229, 88)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
-size = Vector2(174.027, 97.3455)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kdubu"]
 
 [node name="game" type="Node2D"]
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-25, 127)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("WorldBoundaryShape2D_0e48y")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D2/CollisionShape2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/CollisionShape2D/Area2D"]
-shape = SubResource("WorldBoundaryShape2D_0e48y")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(-19, -201)
-rotation = -3.15205
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-shape = SubResource("WorldBoundaryShape2D_0e48y")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D3/CollisionShape2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/CollisionShape2D/Area2D"]
-shape = SubResource("WorldBoundaryShape2D_0e48y")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(-17, -184)
-rotation = -3.15205
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(198.583, -245.936)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_epypp")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D4/CollisionShape2D"]
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
-position = Vector2(-17, -184)
-rotation = -3.15205
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
-position = Vector2(-172.396, -249.817)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_epypp")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D5/CollisionShape2D"]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D5"]
-position = Vector2(-176.582, -40.8492)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_epypp")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D5/CollisionShape2D2"]
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D5"]
-position = Vector2(192.418, -38.9895)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_epypp")
-
-[node name="Area2D" type="Area2D" parent="StaticBody2D5/CollisionShape2D3"]
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(-20, -39)
+scale = Vector2(0.0829585, 0.0829585)
+texture = ExtResource("1_kdubu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-27, -40)
@@ -108,16 +56,72 @@ position = Vector2(-2, 12)
 [node name="stoplightLEFT" parent="." instance=ExtResource("3_epypp")]
 position = Vector2(-126, -38)
 
-[node name="stoplightRIGHT" parent="." instance=ExtResource("3_epypp")]
-position = Vector2(64, -39)
-rotation = -3.13603
-
-[node name="stoplight" parent="." instance=ExtResource("4_0hol4")]
-position = Vector2(-30, 5.99999)
-rotation = -1.5853
+[node name="stoplightLEFT" parent="stoplightLEFT" instance=ExtResource("3_epypp")]
+position = Vector2(172, -3)
+scale = Vector2(-1, 1)
 
 [node name="stoplight2" parent="." instance=ExtResource("4_0hol4")]
-position = Vector2(-27, -87)
-rotation = 1.55271
+position = Vector2(-26, -120)
+rotation = -0.00555933
+
+[node name="stoplight" parent="." instance=ExtResource("5_q6r6c")]
+position = Vector2(-22, 56)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-208.5, -164)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(379, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-208.5, -164)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(378, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-208.5, -164)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(0, 251)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-208.5, -164)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-321, -45)
+rotation = 1.58056
+shape = SubResource("WorldBoundaryShape2D_kdubu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(281, -36)
+rotation = -1.54605
+shape = SubResource("WorldBoundaryShape2D_kdubu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-29, -209)
+rotation = -3.15312
+shape = SubResource("WorldBoundaryShape2D_kdubu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-19, 130)
+rotation = -6.27864
+shape = SubResource("WorldBoundaryShape2D_kdubu")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-19, 130)
+rotation = -6.27864
+shape = SubResource("WorldBoundaryShape2D_kdubu")
 
 [connection signal="pressed" from="carsSpawner/Button" to="carsSpawner/Node2D" method="_on_button_pressed"]
+
+[editable path="stoplightLEFT"]
+[editable path="stoplightLEFT/stoplightLEFT"]

@@ -5,10 +5,12 @@ extends Node2D
 @onready var red: Sprite2D = $CharacterBody2D/red
 var cars_in_area: Array = []
 var color = "red" 
+@onready var button: Button = $CharacterBody2D/Button
 
 func _ready() -> void:
 	red.visible = true
 	update_light()
+	button.self_modulate = Color(1, 1, 1, 0) 
 
 func _on_button_pressed() -> void:
 	match color:

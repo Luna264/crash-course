@@ -11,6 +11,7 @@ func spawn_car():
 	var spawn_position = get_child(spawn_num).global_position
 	car_scene.position = spawn_position   
 	car_scene.rotation = randi_range(0, 190)
+	car_scene.self_modulate = randi_range(1, 4)
 	get_parent().add_child(car_scene)     
 
 func _on_button_pressed() -> void:

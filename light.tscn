@@ -1,43 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://7bblc3hmd4rp"]
+[gd_scene load_steps=7 format=3 uid="uid://7bblc3hmd4rp"]
 
-[ext_resource type="Texture2D" uid="uid://67y86e6t1wqg" path="res://icon.svg" id="1_hdgcg"]
 [ext_resource type="Script" uid="uid://o1655v1686th" path="res://light.gd" id="1_we4ua"]
+[ext_resource type="Texture2D" uid="uid://dhp1akbg7rfhk" path="res://images/stoplightGREENpng.png" id="2_5qqhr"]
+[ext_resource type="Texture2D" uid="uid://bfvmua8afte2u" path="res://images/stoplightYELLOWpng.png" id="3_njlvs"]
+[ext_resource type="Texture2D" uid="uid://dkl5nuvxbx6c" path="res://images/stoplightRED.png" id="4_esukd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we4ua"]
-size = Vector2(298, 87.3689)
+size = Vector2(298, 151)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njlvs"]
+height = 72.0
 
 [node name="stoplight" type="Node2D"]
 script = ExtResource("1_we4ua")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
+[node name="Button" type="Button" parent="CharacterBody2D"]
+offset_left = -11.0
+offset_top = -37.0
+offset_right = 6.0
+offset_bottom = 61.0
+scale = Vector2(1.53889, 0.746247)
+metadata/_edit_use_anchors_ = true
+
 [node name="green" type="Sprite2D" parent="CharacterBody2D"]
-modulate = Color(0.257624, 0.779712, 0.468925, 1)
-scale = Vector2(-0.171182, -0.750065)
-texture = ExtResource("1_hdgcg")
+position = Vector2(4.79552, 3.14121)
+scale = Vector2(0.090165, 0.0982034)
+texture = ExtResource("2_5qqhr")
 
 [node name="yellow" type="Sprite2D" parent="CharacterBody2D"]
-modulate = Color(0.827185, 0.574757, 0.0606315, 1)
-scale = Vector2(-0.171182, -0.750065)
-texture = ExtResource("1_hdgcg")
+position = Vector2(4.79552, 3.14121)
+scale = Vector2(0.090165, 0.0982034)
+texture = ExtResource("3_njlvs")
 
 [node name="red" type="Sprite2D" parent="CharacterBody2D"]
-modulate = Color(0.866997, 0.501721, 0.510451, 1)
-scale = Vector2(-0.171182, -0.750065)
-texture = ExtResource("1_hdgcg")
-
-[node name="Button" type="Button" parent="CharacterBody2D"]
-offset_left = -9.0
-offset_top = -49.0
-offset_right = 8.0
-offset_bottom = 49.0
-metadata/_edit_use_anchors_ = true
+position = Vector2(4.79552, 3.14121)
+scale = Vector2(0.090165, 0.0982034)
+texture = ExtResource("4_esukd")
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-position = Vector2(-157, -1.5)
+position = Vector2(-157, -6.5)
 shape = SubResource("RectangleShape2D_we4ua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(3, -1)
+shape = SubResource("CapsuleShape2D_njlvs")
 
 [connection signal="pressed" from="CharacterBody2D/Button" to="." method="_on_button_pressed"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]

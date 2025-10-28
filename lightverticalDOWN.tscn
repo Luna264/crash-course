@@ -1,18 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1heg3gqagijo"]
+[gd_scene load_steps=7 format=3 uid="uid://clvbttc8t73w0"]
 
-[ext_resource type="Script" uid="uid://o1655v1686th" path="res://light.gd" id="1_40bdk"]
-[ext_resource type="Texture2D" uid="uid://dhp1akbg7rfhk" path="res://images/stoplightGREENpng.png" id="2_713ip"]
-[ext_resource type="Texture2D" uid="uid://bfvmua8afte2u" path="res://images/stoplightYELLOWpng.png" id="3_2gmlp"]
-[ext_resource type="Texture2D" uid="uid://dkl5nuvxbx6c" path="res://images/stoplightRED.png" id="4_dfj0t"]
+[ext_resource type="Script" uid="uid://o1655v1686th" path="res://light.gd" id="1_j4cw5"]
+[ext_resource type="Texture2D" uid="uid://dhp1akbg7rfhk" path="res://images/stoplightGREENpng.png" id="2_ppeeg"]
+[ext_resource type="Texture2D" uid="uid://bfvmua8afte2u" path="res://images/stoplightYELLOWpng.png" id="3_rjv2q"]
+[ext_resource type="Texture2D" uid="uid://dkl5nuvxbx6c" path="res://images/stoplightRED.png" id="4_5ymec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we4ua"]
-size = Vector2(238, 261)
+size = Vector2(255, 261)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_713ip"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4cw5"]
 height = 72.0
 
 [node name="stoplight" type="Node2D"]
-script = ExtResource("1_40bdk")
+script = ExtResource("1_j4cw5")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
@@ -24,29 +24,30 @@ offset_bottom = 49.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(-7, 160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-position = Vector2(11, -79.5)
+position = Vector2(15.5, -79.5)
 shape = SubResource("RectangleShape2D_we4ua")
 
 [node name="green" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(4.79552, 3.14121)
 scale = Vector2(0.090165, 0.0982034)
-texture = ExtResource("2_713ip")
+texture = ExtResource("2_ppeeg")
 
 [node name="yellow" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(4.79552, 3.14121)
 scale = Vector2(0.090165, 0.0982034)
-texture = ExtResource("3_2gmlp")
+texture = ExtResource("3_rjv2q")
 
 [node name="red" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(4.79552, 3.14121)
 scale = Vector2(0.090165, 0.0982034)
-texture = ExtResource("4_dfj0t")
+texture = ExtResource("4_5ymec")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(3, -2)
-shape = SubResource("CapsuleShape2D_713ip")
+position = Vector2(2, -4)
+shape = SubResource("CapsuleShape2D_j4cw5")
 
 [connection signal="pressed" from="CharacterBody2D/Button" to="." method="_on_button_pressed"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
