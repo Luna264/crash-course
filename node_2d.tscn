@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxvfmtkowfa0i"]
+[gd_scene load_steps=11 format=3 uid="uid://cxvfmtkowfa0i"]
 
 [ext_resource type="Texture2D" uid="uid://tb8fmig0f43p" path="res://images/road.png" id="1_kdubu"]
 [ext_resource type="PackedScene" uid="uid://br5ekp276rdtg" path="res://scenes/car.tscn" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://22r2546oi65u" path="res://node_2d.gd" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://7bblc3hmd4rp" path="res://light.tscn" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://d1heg3gqagijo" path="res://lightvertical.tscn" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://c3dg5ufxm2ntm" path="res://images/spawn.png" id="4_rj586"]
+[ext_resource type="Texture2D" uid="uid://hlxkpq7geb1r" path="res://images/spawnPRESS.png" id="5_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://clvbttc8t73w0" path="res://lightverticalDOWN.tscn" id="5_q6r6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
@@ -30,13 +32,6 @@ rotation = 1.57168
 
 [node name="carsSpawner" type="Node" parent="."]
 
-[node name="Button" type="Button" parent="carsSpawner"]
-offset_left = -270.0
-offset_top = 70.0
-offset_right = -210.0
-offset_bottom = 101.0
-text = "Spawn"
-
 [node name="Node2D" type="Node2D" parent="carsSpawner"]
 position = Vector2(-18, -177)
 script = ExtResource("2_0e48y")
@@ -53,15 +48,40 @@ position = Vector2(237, 142)
 [node name="Spawner4" type="Node2D" parent="carsSpawner/Node2D"]
 position = Vector2(-2, 12)
 
+[node name="Control" type="Control" parent="carsSpawner/Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -287.363
+offset_top = 140.403
+offset_right = -247.363
+offset_bottom = 180.403
+
+[node name="TextureButton" type="TextureButton" parent="carsSpawner/Node2D/Control"]
+custom_minimum_size = Vector2(-2.76, -2.99)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 2.386
+anchor_right = 4.145
+anchor_bottom = 3.311
+offset_left = -37.6368
+offset_top = -94.843
+offset_right = 1846.24
+offset_bottom = 1025.04
+scale = Vector2(0.165, 0.165)
+pivot_offset = Vector2(-0.435, -0.715)
+texture_normal = ExtResource("4_rj586")
+texture_pressed = ExtResource("5_4d7sh")
+
 [node name="stoplightLEFT" parent="." instance=ExtResource("3_epypp")]
-position = Vector2(-126, -38)
+position = Vector2(-120, -39)
 
 [node name="stoplightLEFT" parent="stoplightLEFT" instance=ExtResource("3_epypp")]
-position = Vector2(172, -3)
+position = Vector2(199, -4)
 scale = Vector2(-1, 1)
 
 [node name="stoplight2" parent="." instance=ExtResource("4_0hol4")]
-position = Vector2(-26, -120)
+position = Vector2(-23, -132)
 rotation = -0.00555933
 
 [node name="stoplight" parent="." instance=ExtResource("5_q6r6c")]
@@ -121,7 +141,7 @@ position = Vector2(-19, 130)
 rotation = -6.27864
 shape = SubResource("WorldBoundaryShape2D_kdubu")
 
-[connection signal="pressed" from="carsSpawner/Button" to="carsSpawner/Node2D" method="_on_button_pressed"]
+[connection signal="pressed" from="carsSpawner/Node2D/Control/TextureButton" to="carsSpawner/Node2D" method="_on_texture_button_pressed"]
 
 [editable path="stoplightLEFT"]
 [editable path="stoplightLEFT/stoplightLEFT"]

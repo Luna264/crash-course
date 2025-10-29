@@ -14,5 +14,5 @@ func spawn_car():
 	car_scene.self_modulate = randi_range(1, 4)
 	get_parent().add_child(car_scene)     
 
-func _on_button_pressed() -> void:
+func _on_texture_button_pressed() -> void:
 	spawn_car()
